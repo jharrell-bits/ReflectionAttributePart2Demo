@@ -18,7 +18,8 @@
     protected override void OnInitialized()
     {
         // Use the AttributeHelper to get the StringLengthAttribute on the Reward.Name property
-        var stringLengthAttribute = (StringLengthAttribute?)AttributeHelper.GetAttribute<Reward, StringLengthAttribute>("Name");
+        //var stringLengthAttribute = (StringLengthAttribute?)AttributeHelper.GetAttribute<Reward, StringLengthAttribute>("Name");
+        var stringLengthAttribute = (StringLengthAttribute?)AttributeHelper.GetAttribute<Reward, StringLengthAttribute>(f => f.Name);
 
         if (stringLengthAttribute != null)
         {
