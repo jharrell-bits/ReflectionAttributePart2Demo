@@ -1,0 +1,57 @@
+﻿@page "/"
+@using System.ComponentModel
+@using System.ComponentModel.DataAnnotations
+@using ReflectionAttributePart2Demo.Models
+@using ReflectionAttributePart2Demo.Utilities
+
+<PageTitle>Rewards</PageTitle>
+
+<h1>Rewards</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@(AttributeUtility.GetDisplayName<Reward>(f => f.Name))</th>
+            <th>@(AttributeUtility.GetDisplayName<Reward>(f => f.Description))</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reward in rewards)
+        {
+            <tr>
+                <td>@reward.Name</td>
+                <td>@reward.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Reward>? rewards;
+
+    protected override async Task OnInitializedAsync()
+    {
+        rewards = new List<Reward>();
+
+        rewards.Add(new Reward()
+            {
+                Id = 1,
+                Name = "Level 1",
+                Description = "Basic Level 1 Reward"
+            });
+
+        rewards.Add(new Reward()
+            {
+                Id = 2,
+                Name = "Level 2",
+                Description = "Basic Level 2 Reward"
+            });
+
+        rewards.Add(new Reward()
+            {
+                Id = 3,
+                Name = "Level 3",
+                Description = "Intermediate Level 3 Reward"
+            });
+    }
+}

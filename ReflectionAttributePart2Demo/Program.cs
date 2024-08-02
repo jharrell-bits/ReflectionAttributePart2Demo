@@ -1,4 +1,4 @@
-using ReflectionAttributeDemo.Components;
+using ReflectionAttributePart2Demo.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
